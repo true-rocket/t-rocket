@@ -1,0 +1,121 @@
+<br/>
+<br/>
+<br/>
+<div class="text-c font-x3 bold">Welcome mate!</div>
+<div class="default-block margin-c fit-content"
+     style="padding: 0px;
+	    position: absolute;
+	    left: 20%;
+	    right: 20%;
+	    margin: auto;">
+    <div class="flex-left"
+	 id="carousel"
+	 style="width: 300%;
+		margin: 0;
+		padding: 0;
+		transition: 0.2s;">
+	<div class="font-x2 text-c nowrap"
+	     style="width: 33.33%;">
+	    <div class="text-c">Introduse yourself</div>
+	    <table id="intro"
+		   class="margin-c">
+		<tr>
+		    <td>First name</td>
+		    <td><input spellcheck="false"
+			       name=""
+			       [(ngModel)]="userData.name"
+			       type="text"
+			       value=""/></td>
+		</tr>
+		<tr>
+		    <td>Second name</td>
+		    <td><input spellcheck="false"
+			       name=""
+			       [(ngModel)]="userData.surname"
+			       type="text"
+			       value=""/></td>
+		</tr>
+		<tr>
+		    <td>Pseudonym</td>
+		    <td><input spellcheck="false"
+			       name=""
+			       [(ngModel)]="userData.nick"
+			       type="text"
+			       placeholder="it's optional"/></td>
+		</tr>
+	    </table>
+	</div>
+	
+	<div class="font-x2 text-c nowrap"
+	     style="width: 33.33%;">
+	    <div class="text-c">Email & password</div>
+	    <table id="other"
+		   class="margin-c">
+		<tr>
+		    <td>Email</td>
+		    <td><input spellcheck="false"
+			       [(ngModel)]="userData.email"
+			       (keyup)="input = true"
+			       name=""
+			       placeholder="email@domain.com"
+			       type="email"
+			       value=""/></td>
+		    <td style="color: red">{{emailCheck}}</td>
+		</tr>
+		<tr>
+		    <td></td>
+		    <div style="height: 50px;
+				margin-left: auto;
+				margin-right: auto;"
+			 #eye
+			 class="eye-opened"
+			 (click)="toggleEye(eye)"
+			 id="eye"></div>
+		</tr>
+		<tr>
+		    <td>Password</td>
+		    <td><input spellcheck="false"
+			       name=""
+			       id='pass-input'
+			       [(ngModel)]="userData.password"
+			       type="password"
+			       value=""/></td>
+		    <td style="font-size: 60%; width: 10%;"
+			[class]="vulLevel">{{passStrength}}</td>
+		</tr>
+		<tr>
+		    <td>one more time</td>
+		    <td><input spellcheck="false"
+			       name=""
+			       id='pass-input-check'
+			       (keyup)="input = true"
+			       [(ngModel)]="passCheck"
+			       type="password"/></td>
+		    <td style="font-size: 60%; width: 10%;"
+			id="pass-check"></td>
+		</tr>
+	    </table>
+	</div>
+	<div class="font-x2 text-c"
+	     style="width: 33.33%;">
+	    do not forget to verify your email
+	</div>
+    </div>
+    
+
+    <div id="bottom-buttons"
+	     class="flex-left margin-c fit-width">
+	<div id="back-button"
+	     class="mock-button disabled transparent back-button"
+	     (click)="this.state = 1">Back</div>
+	<span></span>
+	<div id="next-button"
+	     class="mock-button shift transparent next-button disabled"
+	     (click)="clickNext()">Next</div>
+    </div>
+    <a style="position: absolute;
+	      bottom: 10px;
+	      right: 10px;"
+       class="default-link"
+       routerLink="/sign-in">I already have an account</a>
+</div>

@@ -1,0 +1,224 @@
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+app-root {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    * {
+	font-family: 'Inconsolata', monospace;
+	background-color: white;
+	border-color: grey;
+	border-radius: 5px;
+	padding: 5px;
+	text-align: justify;
+	margin: 5px;
+	transition: 0.2s;
+	position: relative;
+	color: #5f5f5f;
+    }
+
+    ::selection {
+	background: grey;
+	color: white;
+    }
+
+    .font-x5 {
+	font-size: 500%;
+    }
+
+    .font-x4 {
+	font-size: 400%;
+    }
+
+    .font-x3 {
+	font-size: 300%;
+    }
+
+    .font-x2 {
+	font-size: 200%;
+    }
+
+    .font-x1 {
+	font-size: 100%;
+    }
+
+
+    .text-l {
+	text-align: left;
+    }
+
+    .text-r {
+	text-align: right;
+    }
+
+    .text-c {
+	text-align: center;
+    }
+
+    .fit-width {
+	width: fit-content;
+    }
+
+
+    .nowrap {
+	white-space: nowrap;
+    }
+
+    .margin-c {
+	margin-left: auto;
+	margin-right: auto;
+    }
+
+    .margin-r {
+	margin-left: auto;
+	margin-right: 0;
+    }
+
+    .margin-l {
+	margin-left: 0;
+	margin-right: auto;
+    }
+
+    .width-max {
+	width: 100%;
+    }
+    
+    .flex-left {
+	display: flex;
+	flex-direction: row;
+    }
+
+    .flex-right {
+	display: flex;
+	flex-direction: row-reverse;
+    }
+    
+    .flex-top {
+	display: flex;
+	flex-direction: column;
+    }
+
+    .flex-bottom {
+	display: flex;
+	flex-direction: column-reverse;
+    }
+    
+    .mock-button, .header-button {
+	border: 2px solid;
+	width: fit-content;
+	user-select: none;
+	font-weight: bold;
+	color: inherit;
+	&:hover {
+	    color: inherit;
+	    box-shadow: -1px 1px 5px grey;
+	    border-color: transparent;
+	}
+    }
+
+    .mock-button {
+	&:active {
+	    box-shadow: 0px 0px 3px grey;
+	}
+	padding-left: 15px;
+	padding-right: 15px;
+    }
+    
+    .button-activate {
+	box-shadow: 0px 0px 3px grey;
+	border-color: transparent;
+    }
+
+    .header-button {
+	padding: 5px;
+	padding-top: 0px;
+	padding-bottom: 2px;
+	border: none;
+    }
+    
+    .default-block {
+	box-shadow: -2px 2px 6px 0 grey;
+	overflow: hidden;
+	padding: 0;
+	border: none;
+    }
+    
+    .disabled {
+	opacity: 0.5;
+	filter: saturate(0.1);
+	pointer-events: none;
+    }
+    
+    .transparent {
+	opacity: 0.0;
+    }
+    // text decorations
+    
+    .bold {
+	font-weight: bold;
+    }
+    
+    .italic {
+	font-style: italic;
+    }
+    
+    .underlined {
+	text-decoration: underline;
+    }
+    
+    .crossed {
+	text-decoration: line-through;
+    }
+    
+    input {
+	decoration: none;
+	border: none;
+	outline: none;
+	border-radius: 0;
+	border-color: transparent;
+	border-bottom: 1px solid;
+	border-bottom-color: inherit;
+	&:focus {
+	    decoration: none;
+	    outline: none;
+	    box-shadow: 0 -3px 0 -2px inset;
+	}
+    }
+    
+    a {
+	color: currentColor;
+	cursor: pointer;
+	&:hover {
+	    color: currentColor;
+	    text-decoration: none;
+	}
+    }
+    
+    .sandwich {
+	height: 30px;
+	width: 30px;
+	content: "";
+	height: 0px;
+	width: 30px;
+	border: 3px solid;
+	box-shadow: 0 10px, 0 20px;
+	padding: 0;
+    }
+    
+    ::placeholder {
+	opacity: 0.5;
+    }
+}
+
+
+app-root > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+}

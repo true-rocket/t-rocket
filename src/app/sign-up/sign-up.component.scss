@@ -1,0 +1,142 @@
+
+.next-button {
+    border-color: #74d146;
+    color: #74d146;
+    &:hover {
+	background-color: #74d146;
+	color: white;
+    }
+}
+
+.back-button {
+    
+    border-color: #396ed1;
+    color: #396ed1;
+    &:hover {
+	background-color: #396ed1;
+	color: white;
+    }
+}
+
+.shift {
+    margin-left: -30%;
+}
+
+#bottom-buttons {
+    // position: absolute;
+    // bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.red {
+    color: #d10909;
+}
+
+.yellow {
+    color: #d1d109;
+}
+
+.green {
+    color: #09d14c;
+}
+
+@keyframes check-frames {
+    0% {padding-bottom: 0px;}
+    40% {padding-bottom: 0px;}
+    50% {padding-bottom: 4px;}
+    60% {padding-bottom: 0px;}
+    100% {padding-bottom: 0px;}
+}
+
+.check {
+    &:before {
+	position: absolute;
+	content: ".";
+	left: -0.1em;
+	bottom: 0.95em;
+	animation-name: check-frames;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+    }
+
+    animation-name: check-frames;
+    animation-duration: 2s;
+    animation-delay: 0.33s;
+    animation-iteration-count: infinite;
+
+    
+    &:after {
+	position: absolute;
+	content: ".";
+	left: 0.7em;
+	bottom: 0.95em;
+	animation-name: check-frames;
+	animation-duration: 2s;
+	animation-delay: 0.66s;
+	animation-iteration-count: infinite;
+    }
+}
+
+.eye-closed {
+    transition: 0.2s;
+    width: 50px;
+    content: "";
+    &:before {
+	transition: 0.2s;
+	position: absolute;
+	content: "";
+	left: 15px;
+	top: 25px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+    }
+    &:after {
+	transition: 0.2s;
+	position: absolute;
+	content: "";
+	left: 10px;
+	top: 10px;
+	width: 30px;
+	height: 30px;
+	border-bottom-left-radius: 70%;
+	border-top-right-radius: 70%;
+	border: 3px solid transparent;
+	border-bottom: 3px solid;
+	border-left: 3px solid;
+	transform: rotate(-45deg);
+    }
+}
+
+.eye-opened {
+    transition: 0.2s;
+    width: 50px;
+    content: "";
+    &:before {
+	transition: 0.2s;
+	position: absolute;
+	content: "";
+	left: 15px;
+	top: 18px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 3px solid;
+    }
+    &:after {
+	transition: 0.2s;
+	position: absolute;
+	content: "";
+	left: 10px;
+	top: 10px;
+	width: 30px;
+	height: 30px;
+	border-bottom-left-radius: 70%;
+	border-top-right-radius: 70%;
+	border: 3px solid;
+	transform: rotate(-45deg);
+    }
+    
+}

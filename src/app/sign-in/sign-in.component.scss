@@ -1,0 +1,54 @@
+#sub {
+    margin-right: auto;
+    border-color: #74d146;
+    color: #74d146;
+    &:hover {
+	background-color: #74d146;
+	color: white;
+    }
+}
+
+#reg {
+    margin-left: auto;
+    border-color: #396ed1;
+    color: #396ed1;
+    &:hover {
+	background-color: #396ed1;
+	color: white;
+    }
+}
+
+input {
+    decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    border-color: transparent;
+    border-bottom: 1px solid;
+    border-bottom-color: inherit;
+    transition: 0.2s;
+    &:focus {
+	decoration: none;
+	outline: none;
+	box-shadow: 0 -3px 0 -2px inset;
+    }
+}
+
+.mock-button {
+    width: 30%;
+    text-align: center;
+}
+
+#restore-pass {
+    font-size: 70%;
+    cursor: default;
+    &:hover {
+	text-decoration: underline;
+    }
+}
+
+#wrong-pass {
+    font-size: 70%;
+    color: #ff5050;
+    cursor: default;
+}
