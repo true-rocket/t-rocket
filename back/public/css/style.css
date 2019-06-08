@@ -1,0 +1,93 @@
+@font-face{
+    font-family:OpenSansLight;
+    font-display:swap;
+    font-style:normal;
+    font-weight:300;
+    src:local('Open Sans Light'),local('OpenSans-Light'),url(../fonts/OpenSans-300-Light.ttf) format('truetype'),url(../fonts/OpenSans-300-Light.woff) format('woff')
+}
+@font-face{
+    font-family:OpenSans;
+    font-display:swap;
+    font-style:normal;
+    font-weight:400;
+    src:local('Open Sans'),local('OpenSans'),url(../fonts/OpenSans-400-Regular.ttf) format('truetype'),url(../fonts/OpenSans-400-Regular.woff) format('woff')
+}
+@font-face{
+    font-family:OpenSansSemibold;
+    font-display:swap;
+    font-style:normal;
+    font-weight:600;
+    src:local('Open Sans Semibold'),local('OpenSans-Semibold'),url(../fonts/OpenSans-600-Semibold.ttf) format('truetype'),url(../fonts/OpenSans-600-Semibold.woff) format('woff')
+}
+@font-face{
+    font-family:OpenSansBold;
+    font-display:swap;
+    font-style:normal;
+    font-weight:700;
+    src:local('Open Sans Bold'),local('OpenSans-Bold'),url(../fonts/OpenSans-700-Bold.ttf) format('truetype'),url(../fonts/OpenSans-700-Bold.woff) format('woff')
+}
+
+html{
+    height:100%;
+    font-family:sans-serif;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    font-size:10px;
+    -webkit-tap-highlight-color:transparent
+}
+*,:after,:before{
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+body{
+    height:100%;
+    margin:0;
+    font-family:'OpenSans';
+    font-size:14px;
+    line-height:1.42857143;
+    color:#444b5b;
+    background-color:#fff
+}
+button,h3,input{
+    font-family:inherit
+}
+button,input{
+    font-size: 14px;
+    font-style: italic;
+	height: 26px;
+}
+
+input[type=date]::-webkit-outer-spin-button,
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=date]{
+    width: 120px;
+	border-radius: 0;
+	border: 1px solid #e3e9ef;
+}
+input[type=button],input[type=submit]{
+    background: url('../images/arrow_right.png') no-repeat 93% center, #1c9fe7;
+    border: none;
+    padding: 0 35px 0 25px;
+    color: #fff;
+    font-style: normal;
+    font-size: 16px;
+	cursor: pointer;
+	height: 26px;
+}
+h1{
+	font-size: 30px;
+	text-align: left;
+    font-family: OpenSansBold;
+}
+h3{
+    font-weight:500;
+    line-height:1.1;
+    color:inherit;
+    margin-top:0;
+    margin-bottom:20px;
+    font-size:24px
+}
