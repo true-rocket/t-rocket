@@ -1,0 +1,30 @@
+<div class="main-container">
+  <div class="menu">
+    <img class="logo" src="../../assets/logo_cabinet.svg" />
+    <div class="text-l menu-points"
+	 style="margin-left: 52px;
+		font-size: 18px;
+		font-weight: bold;">
+      <div [ngClass]="(activePage == 1) ? 'active' : ''"
+	   (click)="activePage = 1">Мой профиль</div>
+      <div [ngClass]="(activePage == 2) ? 'active' : ''"
+      	   (click)="activePage = 2">Мой транспорт</div>
+      <div [ngClass]="(activePage == 3) ? 'active' : ''"
+      	   (click)="activePage = 3">Мой маршрут</div>
+      <div [ngClass]="(activePage == 4) ? 'active' : ''"
+      	   (click)="activePage = 4">История заказов</div>
+    </div>
+    <div class="balanse">
+      <div class="content margin-c">
+      <div>Баланс:</div>
+      <div>{{ balance }} руб</div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <div *ngIf="activePage == 1">One</div>
+    <div *ngIf="activePage == 2">Two</div>
+    <div *ngIf="activePage == 3">Three</div>
+    <div *ngIf="activePage == 4">Four</div>
+  </div>
+</div>

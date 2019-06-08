@@ -1,0 +1,147 @@
+.little-logo {
+    background-image: url(../../assets/logo_little.svg);
+    position: absolute;
+    width: 178px;
+    height: 35px;
+    top: 27px;
+    left: 52px;
+}
+
+.main-container {
+    width: 45%;
+    padding-top: 152px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-content {
+    transition: 0.2s;
+    width: 400%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    &> div {
+	width: 33.33%;
+    }
+}
+
+.arrow-left {
+    content: "";
+    width: 22px;
+    height: 22px;
+    &:before {
+	content: "";
+	position: absolute;
+	top: 10px;
+	width: 20px;
+	height: 0;
+	border: 1px solid;
+    }
+    
+    &:after {
+	content: "";
+	position: absolute;
+	top: 5px;
+	width: 12px;
+	height: 12px;
+	border: 2px solid;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	transform: rotate(-45deg);
+    }
+}
+
+.arrow-right {
+    content: "";
+    width: 22px;
+    height: 22px;
+    &:after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	width: 20px;
+	height: 0;
+	border: 1px solid;
+    }
+    
+    &:before {
+	content: "";
+	position: absolute;
+	top: 5px;
+	width: 12px;
+	height: 12px;
+	border: 2px solid;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+	transform: rotate(45deg) translate(4px, -4px);
+    }
+}
+
+.registration-steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .step {
+	margin-left: 45px;
+	margin-right: 45px;
+    }
+}
+
+.form-element {
+    padding-top: 14px;
+    padding-left: 55px;
+    padding-right: 55px;
+    height: 52px;
+    box-shadow: 0px 4px 4px rgba(182, 182, 182, 0.25);
+    border-radius: 30px;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.approve {
+    width: 30%;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #426BFE;
+    font-weight: bold;
+    color: #fefefe;
+}
+
+.retrieve-code {
+    width: 30%;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #FED542;
+    font-weight: bold;
+    color: #fefefe;
+}
+
+.approve-inn {
+    width: 45%;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #426BFE;
+    font-weight: bold;
+    color: #fefefe;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.golden {
+     background-color: #FED542;
+     color: #fefefe;
+}

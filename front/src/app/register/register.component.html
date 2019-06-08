@@ -1,0 +1,84 @@
+<div class="little-logo img"></div>
+
+<div class="main-container margin-c">
+  <h1 class="fit-width margin-c">{{ title }}</h1>
+  <br/>
+  <br/>
+  <div class="carousel">
+    <div class="carousel-content">
+      <!-- item 1 -->
+      <div>
+	<div class="registration-steps fit-width margin-c">
+	  <div class="arrow-left"
+	       (click)="back()"></div>
+	  <div class="step">Шаг 1: Вы исполнитель или заказчик</div>
+	  <div class="arrow-right"
+	       (click)="further(100)"></div>
+	</div>
+	<br/>
+	<br/>
+	<div style="display: flex;
+		    flex-direction: row;
+		    justify-content: space-between;">
+	  <div class="form-element text-c bold noselect"
+	       [ngClass]="(executor === true ) ? 'golden' : ''"
+	       (click)="executor = true">Я - Исполнитель</div>
+	  <div class="form-element text-c bold noselect"
+	       [ngClass]="(executor === false ) ? 'golden' : ''"
+	       (click)="executor = false">Я - Заказчик</div>
+	</div>
+	<br/>
+	<input class="form-element"
+	       placeholder="Имя"/>
+	<input class="form-element"
+	       placeholder="Фамилия"/>
+      </div>
+      <!-- item 2 -->
+      <div>
+	<div class="registration-steps fit-width margin-c">
+	  <div class="arrow-left"
+	       (click)="back(0)"></div>
+	  <div class="step">Шаг 2: Подтвердите номер телефона</div>
+	  <div class="arrow-right"
+	       (click)="further(200)"></div>
+	</div>
+	<br/>
+	<div class="flex">
+	  <input class="form-element"
+		 style="width: 60%"
+		 placeholder="Номер"/>
+	  <div class="form-element text-c approve">Подтвердить</div>
+	</div>
+	<div class="flex">
+	  <input class="form-element"
+		 style="width: 60%"
+		 placeholder="Введите код из СМС"/>
+	  <div class="form-element text-c retrieve-code">Выслать код</div>
+	</div>
+      </div>
+      <!-- item 3 -->      
+      <div>
+	<div class="registration-steps fit-width margin-c">
+	  <div class="arrow-left"
+	       (click)="back(100)"></div>
+	  <div class="step">Шаг 3: Подтвердите ИНН</div>
+	  <div class="arrow-right"
+	       (click)="further(300); changeTitle()"></div>
+	</div>
+	<br/>
+	<div class="flex">
+	  <input class="form-element"
+		 style="width: 45%;"
+		 placeholder="Номер ИНН"/>
+	  <div class="form-element approve-inn text-c">Отправить на проверку</div>
+	</div>
+      </div>
+      <div class="text-c">
+	<br/>
+	<br/>
+	<br/>
+	через несколько секунд мы перенаправим вас в личный кабинет
+      </div>
+    </div>
+  </div>
+</div>
