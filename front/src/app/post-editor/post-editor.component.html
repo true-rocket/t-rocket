@@ -1,0 +1,48 @@
+<div> text on the backgrouuuund...</div>
+<div style="position: fixed;
+	    top: 0;
+	    left: 0;
+	    padding: 0;
+	    margin: 0;
+	    border-radius: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-color: black;
+	    opacity: 0.5;">
+    <div class="default-block fit-width margin-c"
+	 style="position: absolute;
+		top: 10%;
+		left: 10%;
+		padding: 20px;
+		padding-top: 0;
+		width: 80%;
+		height: 80%;">
+	<div class="flex-left">
+	    <div id="bold-button"
+		 title="bold"
+		 [class]="((currentDecorations.includes('bold')) ? 'button-activate ' : '') + 'mock-button'"
+		 (click)="toggleBold()">B</div>
+	    <div title="italic"
+		 [class]="((currentDecorations.includes('italic')) ? 'button-activate ' : '') + 'mock-button italic'"
+		 (click)="toggleItalic()">I</div>
+	    <div title="underlined"
+		 [class]="((currentDecorations.includes('underlined')) ? 'button-activate ' : '')  + 'mock-button underlined'"
+		 (click)="toggleUnderlined()">U</div>
+	    <div id="line-through-button"
+		 title="line through"
+		 [class]="((currentDecorations.includes('crossed')) ? 'button-activate ' : '')   + 'mock-button crossed'"
+		 (click)="toggleCrossed()">S</div>
+	</div>
+	<div id="edit-area"
+	     contenteditable="true"
+	     (keyup)="handleSelection($event)"
+	     (click)="handleSelection($event)">
+	    <span [class]="chunk.getCSS()"
+		  *ngFor="let chunk of text.data; let ind = index">{{chunk.text}}</span>
+	</div>
+	<div id="save-button"
+	     (click)="savePost()"
+	     class="mock-button">save</div>
+    </div>
+</div>
+

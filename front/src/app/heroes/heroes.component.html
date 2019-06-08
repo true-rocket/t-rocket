@@ -1,0 +1,60 @@
+<style>
+ .add-style {
+     margin: 20px;
+     margin-left: auto;
+     background-color: #ff9b9b;
+     transition: 0.3s;
+ }
+ 
+ .add-style:hover {
+     background-color: red;
+ }    
+ 
+</style>
+
+<div>
+    <ul style="width: min-content;
+	       white-space: nowrap;
+	       overflow: visible;
+	       height: 100%;
+	       display: inline-block;
+	       margin-left: auto;
+	       margin-right: auto">
+	<li *ngFor='let hero of heroes'
+	    [class.selected]="hero == selectedHero"
+	    (click)="onSelect(hero)"
+	    class="list-item">
+	    {{ hero.name  }}
+	    {{ hero.id    }}
+	</li>
+    </ul>
+    
+
+    <div *ngIf="selectedHero !== null"
+	 style="padding-bottom: 10px;
+		white-space: nowrap;
+		margin-left: auto;
+		margin-right: auto;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		display: inline-block;
+		box-shadow: 0 8px 8px -8px grey inset;
+		background-color: white;">
+	<div (click)="unsetHero()"
+	     class="add-style cross-button"></div>
+
+	<hero-detail [hero]="selectedHero"></hero-detail>
+	
+    </div>
+    
+</div>
+
+
+
+
+
+<!-- <button	>
+     Drop Selection</button> -->
+<!-- -->

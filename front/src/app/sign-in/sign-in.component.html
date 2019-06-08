@@ -1,0 +1,38 @@
+<br/>
+<div class="text-c font-x3 bold">Glad to see<br/>you back!</div>
+<div class="default-block margin-c font-x2"
+     style="padding: 20px;
+	    width: 50%;">
+    <div class="text-c">Login</div>
+    <table id="other"
+	   class="margin-c">
+	<tr>
+	    <td>Email</td>
+	    <td><input spellcheck="false"
+		       [(ngModel)]="email"
+		       type="text"
+		       value=""/></td>
+	</tr>
+	<tr>
+	    <td>Password</td>
+	    <td><input name=""
+		       type="password"
+		       (keyup)="($event.key == 'Enter') ? submit() : null"
+		       [(ngModel)]="password"
+		       value=""/></td>
+	</tr>
+    </table>
+    <div class="fit-width transparent margin-c"
+	 id="wrong-pass">Wrong email or password</div>
+    <div id="restore-pass"
+	 class="fit-width margin-r">Forgot password</div>
+    <div class="flex-left margin-c">
+	<a id="reg"
+	   routerLink="/sign-up"
+	   class="mock-button">Register</a>
+	<span></span>
+	<a id="sub"
+	   (click)="submit()"
+	   class="mock-button">Submit</a>
+    </div>
+</div>
