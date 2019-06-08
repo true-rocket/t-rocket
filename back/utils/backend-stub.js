@@ -23,9 +23,10 @@ exports.initBackendStub = function(app, server) {
   });
 
   app.post('/auth', bodyParser.json(), (req, res) => {
-    res.writeHead(200, {
-      'Content-Type': 'application/json; charset=utf-8'
-    })
-    //db.getReportData(req.body, res)
+    db.sqlAuth(req.body, res)
+  });
+
+  app.put('/auth', bodyParser.json(), (req, res) => {
+    db.sqlReg(req.body, res)
   });
 };

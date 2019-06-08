@@ -1,10 +1,13 @@
 const { Pool, Client } = require('pg')
-const connectionString = 'postgresql://postgres:tm@192.168.38.215:5432/Horizon_RTLS'
+const connectionString = 'postgresql://admin:@123admin@91.240.87.125:5432/trocket'
+
 const repData = require('./repData')
+const {sqlAuth,sqlReg} = require('./sqls/sqlAuth')
+
+
 const pool = new Pool({
   connectionString: connectionString,
 })
-const out_guid='ffffffff-ffff-ffff-ffff-ffffffffffff'
 
 module.exports = {
   asyncGetClient: async () => {
@@ -20,12 +23,22 @@ module.exports = {
       callback(err, res)
     })
   },
-  
-  out_guid: out_guid,
 
   getReportData: (params, res) => {
     rep = params.report;
     repData[rep](params, res);
+  },
+
+  sqlAuth: (params, res) => {
+    let sql = new sqlAuth()
+    sql.setParams(params)
+    sql.execute(res)
+  },
+
+  sqlReg: (params, res) => {
+    let sql = new sqlReg()
+    sql.setParams(params)
+    sql.execute(res)
   }
 
 }

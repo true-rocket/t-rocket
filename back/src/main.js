@@ -9,8 +9,8 @@ Vue.prototype.duplicateObject = function (fromObj) {
   return JSON.parse(JSON.stringify(fromObj))
 }
 
-const pageHome = { template: '<div class="tab-head"><h1>TRocket</h1></div> <div class="tab-body"></div>' }
-const pageHelp = { template: '<div class="tab-head"><h1>Справка</h1></div> <div class="tab-body"></div>' }
+const pageHome = { template: '<h1>TRocket</h1>' }
+const pageHelp = { template: '<h1>Справка</h1>' }
 
 const router = new VueRouter({
   mode: 'history',
@@ -23,7 +23,7 @@ const router = new VueRouter({
 
 new Vue({
   router,
-  el: '#tabs',
+  el: '#app',
   data() {
     return {
     }

@@ -1,7 +1,7 @@
 const QueryStream = require('pg-query-stream')
 const JSONStream = require('JSONStream')
 
-class baseSQL {
+class promiseSQL {
   constructor(){
     this.limit=false;
     this.offset=false;
@@ -9,8 +9,6 @@ class baseSQL {
     this.where=[];
     this.tempTables=[];
     this.params=[];
-    this.initJoin();
-    this.initWhere();
   }
   getSelect(){
     return '*'
@@ -99,26 +97,7 @@ class baseSQL {
 
   }
   setParams(params){
-    if (params.tags!=undefined){
-      this.addJoinWithArr(params.tags, 'tmp_tags', 'tag_id', 'tgzn_tag_dev_id');
-    }
 
-    if (params.zones!=undefined){
-      this.addJoinWithArr(params.zones, 'tmp_zones', 'zone_id', 'tgzn_zone_id');
-    }
-
-    if(params.date_start!=undefined){
-      this.params['date_start']=params.date_start
-    }
-    if(params.date_end!=undefined){
-      this.params['date_end']=params.date_end
-    }
-    if(params.limit!=undefined && +params.limit>0){
-      this.limit=params.limit
-    }
-    if(params.offset!=undefined && +params.offset>0){
-      this.offset=params.offset
-    }
   }
 
   createTempTables(){
@@ -145,12 +124,15 @@ class baseSQL {
     }
   }
 
-  execute(res){
-    const db = require('../index');
+  execute(resolve, reject){
+    const db = require('./index');
+    this.initJoin();
+    this.initWhere();
+
     console.log('Execute report:', this.constructor.name);
     db.pool.connect((err, client, done) => {
       if (err) {
-        console.log('Ошибка выполнения\n', sql, '\n', params);
+        console.log('Ошибка соединения\n');
         throw err
       }
 
@@ -166,16 +148,31 @@ class baseSQL {
         pidx++;
         sql=sql.replace('$'+key, '$'+pidx);
       }
-      
+
       console.log(sql);
 
       const query = new QueryStream(sql, params);
       const stream = client.query(query);
 
       stream.on('end', done);
-      stream.pipe(JSONStream.stringify()).pipe(res)
+      // res.resolve(stream)
+      resolve(stream)
     })
   }
 }
 
-module.exports = baseSQL;
+class baseSQL extends promiseSQL{
+
+  execute(res){
+    const self=this
+    self.res = res
+
+    Promise(super.execute(resolve, reject)).then(
+      function(stream){
+        stream.pipe(JSONStream.stringify()).pipe(self.res)
+      }
+    )
+  }
+}
+
+module.exports = {baseSQL, promiseSQL};
