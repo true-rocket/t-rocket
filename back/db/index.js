@@ -3,6 +3,7 @@ const connectionString = 'postgresql://admin:@123admin@91.240.87.125:5432/trocke
 
 const repData = require('./repData')
 const {sqlAuth,sqlReg} = require('./sqls/sqlAuth')
+const {sqlVorders, sqlVroutes} = require('./sqls/sqlTables')
 
 
 const pool = new Pool({
@@ -37,6 +38,18 @@ module.exports = {
 
   sqlReg: (params, res) => {
     let sql = new sqlReg()
+    sql.setParams(params)
+    sql.execute(res)
+  },
+
+  vorders: (params, res) => {
+    let sql = new sqlVorders()
+    sql.setParams(params)
+    sql.execute(res)
+  },
+
+  vroutes: (params, res) => {
+    let sql = new sqlVroutes()
     sql.setParams(params)
     sql.execute(res)
   }

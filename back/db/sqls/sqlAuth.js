@@ -10,8 +10,8 @@ class sqlAuth extends baseSQL {
   }
 
   initWhere(){
-    this.andWhere('pass>=$pass');
-    this.andWhere('name<=$name');
+    this.andWhere('pass=$pass');
+    this.andWhere('login=$name');
   }
 
   setParams(params){
@@ -26,6 +26,8 @@ class sqlAuth extends baseSQL {
   }
 
   execute(res){
+    this.initJoin()
+    this.initWhere()
     const db = require('../index');
     console.log('Execute report:', this.constructor.name);
     db.pool.connect((err, client, done) => {
@@ -35,7 +37,7 @@ class sqlAuth extends baseSQL {
       }
 
       this.client = client
-      this.createTempTables()
+
       let sql = this.getSQL()
 
       let params=[]
@@ -47,28 +49,34 @@ class sqlAuth extends baseSQL {
         sql=sql.replace('$'+key, '$'+pidx);
       }
 
-      const query = new QueryStream(sql, params);
-      const stream = client.query(query);
-
-      stream.on('end', done);
-
-      // if (obj instanceof Promise){
-      //   res.resolve(stream)
-      //   return
-      // }
-
-      if (res.length > 0){
-        res.writeHead(200, {
-          'Content-Type': 'application/json; charset=utf-8'
+      client.query(sql, params)
+        .then(result => {
+          console.log(result)
+          if (result.rows.length > 0){
+            global.req.session.user = result.rows[0].id
+            res.setHeader(
+              'Content-Type', 'application/json; charset=utf-8'
+            )
+            res.status(200)
+            res.json(result.rows)
+            // res.json(result.rows)
+          } else {
+            res.setHeader(
+              'Content-Type', 'application/json; charset=utf-8'
+            )
+            res.status(401)
+            res.json("Пользователь не найден")
+          }
         })
-        stream.pipe(JSONStream.stringify()).pipe(res)
-      } else {
-        res.setHeader(
-          'Content-Type', 'application/json; charset=utf-8'
-        )
-        res.status(401)
-        res.json("Пользователь не найден")
-      }
+        .catch(e => {
+          res.setHeader(
+            'Content-Type', 'application/json; charset=utf-8'
+          )
+          res.status(401)
+          res.json("Пользователь не найден")
+        })
+        .then(() => client.end())
+
     })
   }
 
@@ -299,7 +307,7 @@ class sqlReg {
           })
       }
 
-      smsCode = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+      smsCode = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000 +'';
       let smsMsg = encodeURI('Password: '+smsCode)
 
       self.sendSMS(self.params.login, smsMsg)

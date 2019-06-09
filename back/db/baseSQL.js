@@ -167,11 +167,15 @@ class baseSQL extends promiseSQL{
     const self=this
     self.res = res
 
-    Promise(super.execute(resolve, reject)).then(
+    super.execute(
       function(stream){
         stream.pipe(JSONStream.stringify()).pipe(self.res)
+      },
+      function(e){
+        console.log(e)
       }
     )
+
   }
 }
 
