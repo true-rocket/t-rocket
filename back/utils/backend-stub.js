@@ -29,6 +29,22 @@ exports.initBackendStub = function(app, server) {
 
   });
 
+  app.put('/api/:ref', (req, res, next) => {
+    global.user = req.session.user
+
+    const refName = 'ins_'+req.params.ref;
+    db[refName](req.body, res)
+
+  });
+
+  app.post('/api/:ref', (req, res, next) => {
+    global.user = req.session.user
+
+    const refName = 'upd_'+req.params.ref;
+    db[refName](req.body, res)
+
+  });
+
   app.post('/api/getdata', bodyParser.json(), (req, res) => {
 
     res.writeHead(200, {

@@ -251,8 +251,6 @@ class sqlReg {
   saveUser(name, login, pass, role, company, type){
     const db = require('../index');
     db.pool.connect((err, client, done) => {
-      console.log('INSERT into users (name, login, pass, role, company, type) VALUES($1, $2, $3, $4::uuid, $5::uuid, $6::uuid) RETURNING id',
-        name, login, pass, role, company, type);
 
         client.query(
             'INSERT into users (name, login, pass, role, company, type) VALUES($1, $2, $3, $4::uuid, $5::uuid, $6::uuid) RETURNING id',

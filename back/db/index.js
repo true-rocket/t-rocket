@@ -4,6 +4,7 @@ const connectionString = 'postgresql://admin:@123admin@91.240.87.125:5432/trocke
 const repData = require('./repData')
 const {sqlAuth,sqlReg} = require('./sqls/sqlAuth')
 const {sqlVorders, sqlVroutes} = require('./sqls/sqlTables')
+const {ins_order, upd_order} = require('./sqls/dmlOrders')
 
 
 const pool = new Pool({
@@ -47,11 +48,19 @@ module.exports = {
     sql.setParams(params)
     sql.execute(res)
   },
-
   vroutes: (params, res) => {
     let sql = new sqlVroutes()
     sql.setParams(params)
     sql.execute(res)
+  },
+  ins_order: (params, res) => {
+    let sql = new ins_order()
+    sql.execute(params, res)
+  },
+  upd_order: (params, res) => {
+    let sql = new upd_order()
+
+    sql.execute(params, res)
   }
 
 }
