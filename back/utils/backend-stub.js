@@ -21,7 +21,7 @@ exports.initBackendStub = function(app, server) {
       saveUninitialized: true
   }));
 
-  app.get('/api/:ref', (req, res, next) => {
+  app.get('/:ref', (req, res, next) => {
     global.user = req.session.user
 
     const refName = req.params.ref;
