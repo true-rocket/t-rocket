@@ -43,14 +43,14 @@ class sqlVroutes extends baseSQL {
     return '"Vroutes"'
   }
 
-  initWhere(){
-    this.andWhere('user_contractor>=$user_id');
-  }
-
-  setParams(params){
-    console.log(global.user);
-    this.params['user_id']='07ae8c9c-9c13-a28f-83b8-59274a591b71'
-  }
+  // initWhere(){
+  //   this.andWhere('user_contractor>=$user_id');
+  // }
+  //
+  // setParams(params){
+  //   console.log(global.user);
+  //   this.params['user_id']='07ae8c9c-9c13-a28f-83b8-59274a591b71'
+  // }
 }
 
 class sqlVUsers extends baseSQL {
