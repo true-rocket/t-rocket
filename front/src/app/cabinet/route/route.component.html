@@ -16,21 +16,20 @@
       <div *ngFor="let route of routes"
 	   class="container-route"
 	   (click)="openRoute(route.id)">
-	<p class ="text-route">{{route.pointA}}</p>
-	<p class ="text-route">{{route.pointB}}</p>
-	<p class ="text-route">{{route.routeDate}}</p>
-	<p class ="text-route">{{route.carModel}}</p>
-	<div style="margin-left: 10%;"
-	     [ngClass]="{'green': route.routeStatus === 'Формирование',
-                    'yellow': route.routeStatus === 'Сформирован',
-                    'purple': route.routeStatus === 'В пути',
-                    'grey': route.routeStatus === 'Завершен'}">
-	  <div class="circle"></div>
-	  <div class ="status-route">{{route.routeStatus}}</div>
+    <p class ="text-route">{{route.point_a}}</p>
+    <p class ="text-route">{{route.point_b}}</p>
+    <p class ="text-route">{{route.route_date}}</p>
+    <p class ="text-route">{{route.car_model}}</p>
+    <div style="margin-left: 10%;"
+      [ngClass]="{'green': route.routeStatus === 'Формирование',
+                  'yellow': route.routeStatus === 'Сформирован',
+                  'purple': route.routeStatus === 'В пути',
+                  'grey': route.routeStatus === 'Завершен'}">
+      <div class="circle"></div>
+      <div class ="status-route">{{route.route_status}}</div>
 	</div>
       </div>
     </div>
-  </div>
   <div class="route-detail">
     <div class="back-button"
 	 (click)="hidden = false">&#10092;</div>
