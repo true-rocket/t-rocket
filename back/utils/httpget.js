@@ -1,7 +1,7 @@
 function getGeoCode(adr){
   let seachUrl = 'https://geocoder.api.here.com/6.2/geocode.json?app_id=1gYrfhf0I1rCvOSmx8pA&app_code=5kiWkDTMG4PS4slLKuhzbA&searchtext='
   const https = require('https')
-  seachUrl += encodeURI
+  seachUrl += encodeURIComponent(adr)
   https.get(url, (res) => {
     const { statusCode } = res;
     const contentType = res.headers['content-type'];
@@ -27,7 +27,7 @@ function getGeoCode(adr){
     res.on('end', () => {
       try {
         const parsedData = JSON.parse(rawData);
-        console.log(parsedData);
+        // if (parsedData.Responce.View.result.length > 0)
       } catch (e) {
         console.error(e.message);
       }
