@@ -46,12 +46,14 @@
     <div class="auth-box">
       <div class="input-box">
 	<span>+7 </span>
-	<input type="tel"
+	<input [(ngModel)]="phone"
+	       type="tel"
 	       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
 	       required/>
       </div>
       <div class="input-box">
-	<input placeholder="Введите пароль"
+	<input [(ngModel)]="password"
+	    placeholder="Введите пароль"
 	       style="letter-spacing: 3px;"
 	       type="password"/>
       </div>

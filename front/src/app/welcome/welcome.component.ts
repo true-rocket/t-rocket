@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
+    password: string
+
+    phone: string
+
     constructor(private router: Router) { }
 
     ngOnInit() {

@@ -19,8 +19,8 @@ export class ProfileComponent implements OnInit {
         this.user = {
             lastName: "Василий",
             name: "Петров",
-            phone: "",
-            inn: "",
+            phone: "+7 995 265 56 71",
+            inn: "87242316015654",
             bankAccount: null
         }
     }

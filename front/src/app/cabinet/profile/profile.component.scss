@@ -34,16 +34,17 @@
     
     .text {
 	padding-top: 34px;
-	// grid-area: text;
+	cursor: default;
     }
     
     .red {
-	color: #FE426B
+	color: #FE426B;
     }
     
     .blue {
 	text-decoration: underline;
-	color: #426BFE
+	color: #426BFE;
+	cursor: pointer;
     }
     
     .grid {
