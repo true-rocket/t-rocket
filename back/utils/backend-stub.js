@@ -2,6 +2,7 @@
 // const data = generateData();
 // const cache = {};
 const db = require('../db')
+const { hereapi } = require('./hereapi');
 
 exports.initBackendStub = function(app, server) {
   var bodyParser = require('body-parser');

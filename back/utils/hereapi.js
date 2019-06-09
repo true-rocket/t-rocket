@@ -27,7 +27,10 @@ function getGeoCode(adr){
     res.on('end', () => {
       try {
         const parsedData = JSON.parse(rawData);
-        // if (parsedData.Responce.View.result.length > 0)
+        if (parsedData.Responce.View.Result.length > 0){
+           return parsedData.Responce.View.Result[0].Location.NavigationPosition[0]
+        }
+          return false
       } catch (e) {
         console.error(e.message);
       }
@@ -35,6 +38,6 @@ function getGeoCode(adr){
   }).on('error', (e) => {
     console.error(`Got error: ${e.message}`);
   });
-
-
 }
+
+module.exports = {getGeoCode};
