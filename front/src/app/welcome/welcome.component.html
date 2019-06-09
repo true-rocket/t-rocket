@@ -1,11 +1,11 @@
-<div>
+<div class="main-container">
   <div style="position: absolute;
 	      width: 100%;">
-    <!-- <img src="../assets/logo.svg"
+    <img src="../assets/logo.svg"
 	 style="z-index: 1;
-	 margin-left: auto;
-	 left: -30px;
-	 top: 221px;"/> -->
+	      margin-left: auto;
+	      left: -30px;
+	      top: 221px;"/>
   </div>
   <div class="main-box">
     <!-- info-box -->
@@ -56,10 +56,12 @@
       </div>
       <div class="login-box">
 	<div>Забыли пароль?</div>
-	<button class="login-button noselect"
-		(click)="register()">Вход</button>
+	<div class="login-button noselect"
+	     (click)="register()">Вход</div>
       </div>
-      <div class="register-button noselect">Регистрация</div>
+      <a routerLink="/register">
+	<div class="register-button noselect">Регистрация</div>
+      </a>
     </div>
 
   </div>
