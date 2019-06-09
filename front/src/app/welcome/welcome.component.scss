@@ -18,7 +18,8 @@ input {
 }
 
 .info-box {
-    min-height: 900px;
+    // position: absolute;
+    // height: 100%;
     align-content: left;
     width: 50%;
     background-color: #426BFE;
@@ -34,6 +35,7 @@ input {
 }
 
 .auth-box {
+    height: 50%;
     color: #383839;
     top: 215px;
     width: 372px;
@@ -50,6 +52,7 @@ input {
     }
     
     .login-button {
+	cursor: pointer;
 	color: #fefefe;
 	background-color: #426BFE;
 	box-shadow: 0px 4px 4px rgba(58, 92, 216, 0.25);
@@ -90,8 +93,17 @@ input {
 } 
 
 .main-box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: none;
+}
+
+.main-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }

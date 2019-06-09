@@ -1,4 +1,7 @@
 .main-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -55,7 +58,7 @@
     }
     width: 100%;
     position: absolute;
-    bottom: 35px;
+    bottom: 15px;
 
 }
 

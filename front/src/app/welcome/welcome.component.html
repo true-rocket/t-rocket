@@ -1,11 +1,11 @@
-<div>
+<div class="main-container">
   <div style="position: absolute;
 	      width: 100%;">
-    <!-- <img src="../assets/logo.svg"
+    <img src="../assets/logo.svg"
 	 style="z-index: 1;
-	 margin-left: auto;
-	 left: -30px;
-	 top: 221px;"/> -->
+	      margin-left: auto;
+	      left: -30px;
+	      top: 221px;"/>
   </div>
   <div class="main-box">
     <!-- info-box -->
@@ -31,7 +31,7 @@
       <div style="position: absolute;
 		  top: 217px;
 		  height: 83px;
-		  width: 382px;
+		  width: 440px;
 		  left: 48px;"
 	   class="text-block">Платформа, должна обеспечить транспортную компанию получением заказов на выполнение перевозок, формировать маршрут, генерировать документы</div>
       <div style="position: absolute;
@@ -46,20 +46,25 @@
     <div class="auth-box">
       <div class="input-box">
 	<span>+7 </span>
-	<input type="tel"
+	<input [(ngModel)]="phone"
+	       type="tel"
 	       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
 	       required/>
       </div>
       <div class="input-box">
-	<input placeholder="Введите пароль"
+	<input [(ngModel)]="password"
+	    placeholder="Введите пароль"
+	       style="letter-spacing: 3px;"
 	       type="password"/>
       </div>
       <div class="login-box">
 	<div>Забыли пароль?</div>
-	<button class="login-button noselect"
-		(click)="register()">Вход</button>
+	<div class="login-button noselect"
+		      (click)="router.navigate(['cabinet'])">Вход</div>
       </div>
-      <div class="register-button noselect">Регистрация</div>
+      <a routerLink="/register">
+	<div class="register-button noselect">Регистрация</div>
+      </a>
     </div>
 
   </div>
