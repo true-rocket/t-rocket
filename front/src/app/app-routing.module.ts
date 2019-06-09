@@ -8,6 +8,7 @@ import { CabinetComponent } from './cabinet/cabinet.component';
 const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: 'welcome', component: WelcomeComponent },
+    { path: 'cabinet/:id', component: CabinetComponent },
     { path: 'cabinet', component: CabinetComponent },
     { path: 'register', component: RegisterComponent }
 ]
