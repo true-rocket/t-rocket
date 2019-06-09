@@ -3,7 +3,7 @@ const connectionString = 'postgresql://admin:@123admin@91.240.87.125:5432/trocke
 
 const repData = require('./repData')
 const {sqlAuth,sqlReg} = require('./sqls/sqlAuth')
-const {sqlVorders, sqlVroutes} = require('./sqls/sqlTables')
+const {sqlVorders, sqlVroutes, sqlVPayments, sqlVUsers} = require('./sqls/sqlTables')
 const {ins_order, upd_order} = require('./sqls/dmlOrders')
 
 
@@ -50,6 +50,16 @@ module.exports = {
   },
   vroutes: (params, res) => {
     let sql = new sqlVroutes()
+    sql.setParams(params)
+    sql.execute(res)
+  },
+  vpayments: (params, res) => {
+    let sql = new sqlVpayments()
+    sql.setParams(params)
+    sql.execute(res)
+  },
+  vusers: (params, res) => {
+    let sql = new sqlVUsers()
     sql.setParams(params)
     sql.execute(res)
   },

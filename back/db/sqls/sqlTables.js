@@ -53,4 +53,32 @@ class sqlVroutes extends baseSQL {
   }
 }
 
-module.exports = {sqlVorders, sqlVroutes};
+class sqlVUsers extends baseSQL {
+  getFrom(){
+    return '"Vusers"'
+  }
+
+  initWhere(){
+
+  }
+
+  setParams(params){
+
+  }
+}
+
+class sqlVPayments extends baseSQL {
+  getFrom(){
+    return '"Vpayments"'
+  }
+
+  initWhere(){
+
+  }
+
+  setParams(params){
+
+  }
+}
+
+module.exports = {sqlVorders, sqlVroutes, sqlVPayments, sqlVUsers};

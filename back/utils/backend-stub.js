@@ -62,4 +62,27 @@ exports.initBackendStub = function(app, server) {
 
     db.sqlReg(req.body, res)
   });
+
+  app.get('/completeroute/:id', (req, res, next) => {
+    const routeId = 'upd_'+req.params.id;
+
+    new Promise((resolve, reject) => {
+      let adrFrom = [
+        'Санкт-Перебург, аллея Котельников, 20',
+        'Санкт-Перебург, ул Парашютная, 4',
+        'Санкт-Перебург, пр Ленински, 51',
+      ]
+      let adrTo = [
+        'Ленинградская область, Тихвин, Коммунаров, 18',
+        'Москва, Поречная улица, 9',
+        'село Молоково, Ленинский район, Московская область, Прудищинская улица, 81',
+      ]
+
+
+    }).then(function(value){
+
+    })
+
+  });
+
 };
