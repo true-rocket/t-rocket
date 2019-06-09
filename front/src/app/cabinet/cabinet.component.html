@@ -1,5 +1,6 @@
 <div class="main-container">
-  <div class="menu">
+  <div class="menu"
+       style="z-index: 1;">
     <img class="logo" src="../../assets/logo_cabinet.svg" />
     <div class="text-l menu-points"
 	 style="margin-left: 52px;
@@ -16,6 +17,7 @@
       <div (click)="router.navigate(['/'])">Выход</div>
     </div>
     <div class="balanse">
+      <h1></h1>
       <div class="content margin-c">
       <div>Баланс:</div>
       <div>{{ balance }} руб</div>
@@ -24,7 +26,7 @@
   </div>
   <div class="page">
     <div *ngIf="activePage == 1"><app-profile></app-profile></div>
-    <div *ngIf="activePage == 2"></div>
+    <div *ngIf="activePage == 2"><app-transport></app-transport></div>
     <div *ngIf="activePage == 3"><app-route></app-route></div>
     <div *ngIf="activePage == 4"></div>
   </div>

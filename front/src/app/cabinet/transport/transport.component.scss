@@ -1,0 +1,53 @@
+.main-container {
+    padding: 98px;
+    padding-top: 38px;
+    padding-bottom: 0;
+    color: #383839;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    .new-transport {
+	padding-top: 9px;
+	width: 100%;
+	height: 41px;
+	text-align: center;
+	border: 2px dashed #2C59F8;
+	color: #2C59F8;
+	border-radius: 5px;
+	
+	cursor: default;
+    }
+    
+    h1 {
+	font-weight: bold;
+	white-space: nowrap;
+	font-size: 22px;
+	margin-bottom: 38px;
+    }
+    
+    div {
+	padding-left: 26px;
+	font-size: 16px;
+	color: #A8A8A8;
+	white-space: nowrap;
+
+    }
+    
+    input {
+	margin-bottom: 21px;
+	font-weight: bold;
+	background-color: #F2F5FF;
+	padding-left: 26px;
+	width: 320px;
+	border-radius: 24px;
+	height: 45px;
+    }
+}
+
+.add-route {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-image: url('../../../assets/plus.svg');
+}
