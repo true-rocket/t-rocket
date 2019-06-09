@@ -1,28 +1,89 @@
-<p class="header-route">
-  Мои маршруты
-</p>
-
-<div class="grid-container">
+<div class="main-container"
+     [ngClass]="(hidden) ? 'hidden': ''">
   <div>
-    <div class ="container-new-route"
-      (click)="createRoute()">
-      <div style="margin-left: 25%; min-width: 200px; display: flex;"><div class="add-route"></div>Новый маршрут</div>
+    <p style="margin-top: 35px;"
+       class="header-route">
+      Мои маршруты
+    </p>
+
+    <div class="grid-container">
+      <div>
+	<div class ="container-new-route"
+	     (click)="createRoute()">
+	  <div style="margin-left: 25%; min-width: 200px; display: flex;"><div class="add-route"></div>Новый маршрут</div>
+	</div>
+      </div>
+      <div *ngFor="let route of routes"
+	   class="container-route"
+	   (click)="openRoute(route.id)">
+	<p class ="text-route">{{route.pointA}}</p>
+	<p class ="text-route">{{route.pointB}}</p>
+	<p class ="text-route">{{route.routeDate}}</p>
+	<p class ="text-route">{{route.carModel}}</p>
+	<div style="margin-left: 10%;"
+	     [ngClass]="{'green': route.routeStatus === 'Формирование',
+                    'yellow': route.routeStatus === 'Сформирован',
+                    'purple': route.routeStatus === 'В пути',
+                    'grey': route.routeStatus === 'Завершен'}">
+	  <div class="circle"></div>
+	  <div class ="status-route">{{route.routeStatus}}</div>
+	</div>
+      </div>
     </div>
   </div>
-  <div *ngFor="let route of routes"
-    class="container-route"
-    (click)="openRoute(route.id)">
-    <p class ="text-route">{{route.pointA}}</p>
-    <p class ="text-route">{{route.pointB}}</p>
-    <p class ="text-route">{{route.routeDate}}</p>
-    <p class ="text-route">{{route.carModel}}</p>
-    <div style="margin-left: 10%;"
-      [ngClass]="{'green': route.routeStatus === 'Формирование',
-                  'yellow': route.routeStatus === 'Сформирован',
-                  'purple': route.routeStatus === 'В пути',
-                  'grey': route.routeStatus === 'Завершен'}">
-      <div class="circle"></div>
-      <div class ="status-route">{{route.routeStatus}}</div>
+  <div class="route-detail">
+    <div class="back-button"
+	 (click)="hidden = false">&#10092;</div>
+    <div class="route-head">
+      <div>
+	<h1>Маршрут № {{ routes[selectedRoute].id }}</h1>      
+	<div style="display: flex;">
+	  <div class="index">
+	    <div>Откуда:</div>
+	    <div>Транспорт:</div>
+	    <div>Статус:</div>
+	  </div>
+	  <div class="info">
+	    <div>Проспект Медиков, 6 к7</div>
+	    <div>Газель NEXT фургон</div>
+	    <div class="green">Сформирован</div>
+	  </div>
+	</div>
+      </div>
+      <img src="../../../assets/road_doc.svg" />
+      <img src="../../../assets/ttn.svg" />
+    </div>
+    <div class="route-body">
+      <div style="display: flex;
+		  justify-content: space-between;
+		  padding-right: 32px;
+		  padding-left: 58px;">
+      <h1>Заказы</h1>
+      <div class="show-avalible">Показать доступные заказы</div>
+      </div>
+      <div class="table-head">
+	
+      </div>
+      <div *ngFor="let route of routes[selectedRoute].routes"
+	   class="table-item">
+	<div>
+	  <div>{{route.date}}</div> 	
+	  <div>{{ route.time }}</div> 	
+	</div>
+	<div>
+	  <div>{{route.addres}}</div> 	
+	  <div>{{ route.city }}</div> 	
+	</div>
+	<div>
+	  <div>{{route.d_addres}}</div> 	
+	  <div>{{ route.d_city }}</div> 	
+	</div>
+	<div>
+	  <div>{{route.weight}} кг</div> 	
+	  <div>{{ route.size[0] }} x {{ route.size[1] }} x {{ route.size[2] }}</div> 	
+	</div>
+	  <div>{{route.cost}} руб</div> 	
+      </div>
     </div>
   </div>
 </div>
