@@ -31,4 +31,33 @@
 	border-radius: 24px;
 	height: 45px;
     }
+    
+    .text {
+	padding-top: 34px;
+	// grid-area: text;
+    }
+    
+    .red {
+	color: #FE426B
+    }
+    
+    .blue {
+	text-decoration: underline;
+	color: #426BFE
+    }
+    
+    .grid {
+	display: grid;
+	grid-template-columns: 320px 120px 120px;
+	grid-template-rows: repeat(5, auto);
+	grid-auto-flow: column;
+	grid-column-gap: 24px;
+	// grid-area: text 1 / 2 / 2 / 3;
+	// grid-template-areas:
+	   // ". . .
+	    // . . .
+	    // . text text
+	    // . text text
+	    // . text text";
+    }
 }
