@@ -1,3 +1,28 @@
-<p>
-  route works!
+<p class="header-route">
+  Мои маршруты
 </p>
+
+<div class="grid-container">
+  <div>
+    <div class ="container-new-route"
+      (click)="createRoute()">
+      <div style="margin-left: 25%; min-width: 200px; display: flex;"><div class="add-route"></div>Новый маршрут</div>
+    </div>
+  </div>
+  <div *ngFor="let route of routes"
+    class="container-route"
+    (click)="openRoute(route.id)">
+    <p class ="text-route">{{route.pointA}}</p>
+    <p class ="text-route">{{route.pointB}}</p>
+    <p class ="text-route">{{route.routeDate}}</p>
+    <p class ="text-route">{{route.carModel}}</p>
+    <div style="margin-left: 10%;"
+      [ngClass]="{'green': route.routeStatus === 'Формирование',
+                  'yellow': route.routeStatus === 'Сформирован',
+                  'purple': route.routeStatus === 'В пути',
+                  'grey': route.routeStatus === 'Завершен'}">
+      <div class="circle"></div>
+      <div class ="status-route">{{route.routeStatus}}</div>
+    </div>
+  </div>
+</div>
